@@ -1,0 +1,78 @@
+﻿@model AddViewModel
+@{
+    ViewData["Title"] = "AddFeatures";
+}
+<h3>Add...</h3>
+<div class="container">
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="container">
+        <div class="row">
+            <form asp-area="Admin" asp-action="AddExtra" asp-controller="Admin" method="post">
+                <div class="form-group">
+                    <div class="input-group">
+                        
+                        <span class="input-group-addon">Extra</span>
+
+                        <div class="col-lg-3">
+                            <input asp-for="Extra" type="text" class="form-control" id="value" placeholder="New extra" />
+                            <span asp-validation-for="Extra" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-3">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <form asp-area="Admin" asp-action="AddBrand" asp-controller="Admin" method="post">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Brand</span>
+
+                        <div class="col-lg-3">
+                            <input asp-for="Brand" type="text" class="form-control" id="value" placeholder="New brand" />
+                            <span asp-validation-for="Brand" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-3">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form asp-area="Admin" asp-action="AddModel" asp-controller="Admin" method="post">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Brand Model</span>
+                        <div class="col-lg-3">
+                            <select asp-for="@Model.BrandId" asp-items="@Model.Brands" class="form-control model-scriptSelect" ></select>
+                        </div>
+                        <div class="col-lg-3">
+                            <input asp-for="@Model.Model" placeholder="New model" type="text" class="form-control" id="value" />
+                            <span asp-validation-for="@Model.Model" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-3">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

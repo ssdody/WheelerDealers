@@ -1,0 +1,10 @@
+﻿@model int
+@{
+    ViewData["Title"] = "Delete Car";
+}
+
+<h2>Are you sure you want to delete this car?</h2>
+<div class="btn-group">
+    <a asp-area="" asp-controller="Car" asp-action="Search" class="btn-default">Back</a>
+    <a asp-controller="Car" asp-action="ConfirmDelete" asp-route-id="@Model" class="btn-danger">Delete</a>
+</div>

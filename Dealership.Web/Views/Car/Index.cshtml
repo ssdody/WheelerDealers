@@ -1,0 +1,47 @@
+@*@model IList<Car>*@
+
+    @*@{
+
+        ViewData["Title"] = "Index";
+    }*@
+
+    @*<h1>Cars list</h1>
+    <a class="btn btn-success" asp-controller="Car" asp-action="Create">Create</a>*@
+
+
+    @*<div class="row">
+        @foreach (var car in Model)
+        {
+            var currentId = car.Id;
+            <div class="col-md-4">
+                <h3>@car.Id</h3>
+                <p>Brand: <strong>@car.Brand.Name</strong> </p>
+                <p>Model: <strong>@car.CarModel.Name</strong> </p>
+                <p>Body type: <strong>  @car.BodyType.Name</strong> </p>
+                <p>Color: <strong> @car.Color.Name</strong> </p>
+                <p>Horse power: <strong> @car.HorsePower</strong> </p>
+                <p>Fuel type: <strong> @car.FuelType.Name</strong> </p>
+                <p>Price: <strong> @car.Price $</strong> </p>
+                <a class="btn btn-primary" asp-controller="Car" asp-action="Details" asp-route-id="@car.Id">Details</a>
+                <a class="btn btn-default" asp-controller="Car" asp-action="Edit" asp-route-id="@car.Id">Edit</a>
+                @Html.ActionLink("Delete", "Delete", "Admin", new { area="Admin", confirm = true, id = car.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete this product?')" })
+                <hr />
+
+                <div class="col-md-4">
+                    <h3>@car.Id</h3>
+                    <p>Brand: <strong>@car.Brand.Name</strong> </p>
+                    <p>Model: <strong>@car.CarModel.Name</strong> </p>
+                    <p>Body type: <strong>  @car.BodyType.Name</strong> </p>
+                    <p>Color: <strong> @car.Color.Name</strong> </p>
+                    <p>Horse power: <strong> @car.HorsePower</strong> </p>
+                    <p>Fuel type: <strong> @car.FuelType.Name</strong> </p>
+                    <p>Price: <strong> @car.Price $</strong> </p>
+                    <a class="btn btn-primary" asp-controller="Car" asp-action="Details" asp-route-id="@car.Id">Details</a>
+                    <a class="btn btn-default" asp-controller="Car" asp-action="Edit/@currentId">Edit</a>
+                    @Html.ActionLink("Delete", "Delete", "Admin", new { area="Admin", confirm = true, id = car.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete this product?')" })
+                    <hr />
+
+                </div>
+            </div>
+        }
+    </div>*@

@@ -1,0 +1,57 @@
+﻿@model IList<string>
+
+@if (Model.Count != 0)
+{
+    if (Model.Count == 1)
+    {
+        <img src="~/images/cars/@Model.FirstOrDefault()" class="img-responsive default-image" />
+    }
+    else
+    {
+        <div id="main_area">
+            <div class="col-lg-12" id="slider">
+                <div class="row">
+                    <div class="col-sm-12" id="carousel-bounding-box">
+                        <div class="carousel slide" id="myCarousel">
+                            <div class="carousel-inner">
+
+                                @{bool first = true;}
+
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    <div class="item @(first ? "active" : "")" data-slide-number="@i">
+                                        <img id="carouselImages" src="~/images/cars/@Model[i]" class="img-responsive">
+                                    </div>
+                                    first = false;
+                                }
+                            </div>
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" id="slider-thumbs">
+                <ul class="hide-bullets hidden-md hidden-sm hidden-xs">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <li class="col-sm-4">
+                            <a class="thumbnail" id="carousel-selector-@i"><img src="~/images/cars/@Model[i]"></a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <img src="~/images/cars/default.jpg" class="img-responsive default-image" />
+
+}
+
+<script src="~/js/site.js"></script>    

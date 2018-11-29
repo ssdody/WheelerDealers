@@ -1,0 +1,15 @@
+﻿@model Dealership.Web.Models.CarViewModels.SearchResultViewModel
+
+@{
+    ViewData["Title"] = "_SearchResultPartial";
+}
+
+<div>
+    <partial name="_ListOfSummariesPartial" model="@Model.Summaries" />
+
+    @for (int i = 0; i < Model.NumberOfPages; i++)
+    {
+        <button class="page-scriptSelect" value="@i">@(i + 1)</button>
+    }
+</div>
+

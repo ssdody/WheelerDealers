@@ -1,0 +1,90 @@
+﻿@model Dealership.Web.Models.EditCarViewModel
+<section>
+    <div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input asp-for="@Model.Car.Id" class="hidden">
+
+        <div class="form-group">
+            <label asp-for="@Model.Car.BrandId" class="control-label">Brand</label>
+            <select asp-for="@Model.Car.BrandId" asp-items="@Model.Brands" class="form-control brand-scriptSelect"></select>
+            <span asp-validation-for="@Model.Car.BrandId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.CarModelId" class="control-label">Model</label>
+            <select asp-for="@Model.Car.CarModelId" asp-items="@Model.CarModels" class="form-control model-scriptSelect"></select>
+            <span asp-validation-for="@Model.Car.CarModelId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.EngineCapacity" class="control-label">Engine capacity</label>
+            <input asp-for="@Model.Car.EngineCapacity" class="form-control" />
+            <span asp-validation-for="@Model.Car.EngineCapacity" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.HorsePower" class="control-label">Horse power</label>
+            <input asp-for="@Model.Car.HorsePower" class="form-control" />
+            <span asp-validation-for="@Model.Car.HorsePower" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.GearBoxTypeId" class="control-label">Gearbox type</label>
+            <select asp-for="@Model.Car.GearBoxTypeId" asp-items="@Model.GearTypes" class="form-control gearbox-scriptSelect"></select>
+            <span asp-validation-for="@Model.Car.GearBoxTypeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.NumberOfGears" class="control-label">Number of gears</label>
+            <select asp-for="@Model.Car.NumberOfGears" asp-items="@Model.NumberOfGears" class="form-control nGears-scriptSelect"></select>
+            <span asp-validation-for="@Model.Car.NumberOfGears" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.BodyTypeId" class="control-label">Body type</label>
+            <select asp-for="@Model.Car.BodyTypeId" asp-items="Model.BodyTypes" class="form-control"></select>
+            <span asp-validation-for="@Model.Car.BodyType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.Color" class="control-label"></label>
+            <input asp-for="@Model.Car.Color" class="form-control" />
+            <span asp-validation-for="@Model.Car.Color" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.ColorTypeId" class="control-label">Color type</label>
+            <select asp-for="@Model.Car.ColorTypeId" asp-items="Model.ColorTypes" class="form-control"></select>
+            <span asp-validation-for="@Model.Car.ColorTypeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.FuelTypeId" class="control-label">Fuel type</label>
+            <select asp-for="@Model.Car.FuelTypeId" asp-items="Model.FuelTypes" class="form-control"></select>
+            <span asp-validation-for="@Model.Car.FuelTypeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.Price" class="control-label"></label>
+            <input asp-for="@Model.Car.Price" class="form-control" />
+            <span asp-validation-for="@Model.Car.Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.ProductionDate" class="control-label">Production date</label>
+            <input asp-for="@Model.Car.ProductionDate" class="form-control" />
+            <span asp-validation-for="@Model.Car.ProductionDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Car.Mileage" class="control-label"></label>
+            <input asp-for="@Model.Car.Mileage" class="form-control" />
+            <span asp-validation-for="@Model.Car.Mileage" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Extras" class="control-label h4 text-primary font-weight-bold"></label>
+            <ul>
+                @for (var i = 0; i < Model.Extras.Length; i++)
+                {
+                    <li>
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.Extras[i].Selected" />
+                        <label asp-for="@Model.Extras[i].Selected" class="custom-control-label">@Model.Extras[i].Name</label>
+                        <input type="hidden" asp-for="@Model.Extras[i].Id" />
+                        <input type="hidden" asp-for="@Model.Extras[i].Name" />
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+</section>

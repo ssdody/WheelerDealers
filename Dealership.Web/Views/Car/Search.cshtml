@@ -1,0 +1,45 @@
+﻿@model Dealership.Web.Models.CarViewModels.SearchViewModel
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+
+<div class="container">
+    <div class="col-lg-12">
+        <label class="col-lg-1 col-lg-offset-1 control-label">Brand</label>
+        <div class="col-lg-2">
+            <select asp-for="@Model.SearchResult.SelectedBrandId" asp-items="@Model.Brands" class="form-control brand-scriptSelect"></select>
+        </div>
+        <label class="col-lg-1 control-label">Model</label>
+        <div class="col-lg-2">
+            <select asp-for="@Model.SearchResult.SelectedModelId" asp-items="@Model.CarModels" class="form-control model-scriptSelect"></select>
+        </div>
+        <label class="col-lg-1 control-label">Sort</label>
+        <div class="col-lg-2">
+            <select asp-for="@Model.SearchResult.Sort" asp-items="@Model.SortCriterias" class="form-control sort-scriptSelect"></select>
+        </div>
+
+        <div class="col-lg-2 ">
+            <a class="searchBtn-scriptSelect btn btn-info">
+                Search
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="list-group col-lg-offset-1 col-lg-10">
+            <div class="search-result-partial">
+                <partial name="_SearchResultPartial" model="@Model.SearchResult" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/browsecar.js"></script>
+}
